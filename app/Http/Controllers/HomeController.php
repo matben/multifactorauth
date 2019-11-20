@@ -37,7 +37,7 @@ class HomeController extends Controller
     public function prijava(Request $request)
     {
         if (Auth::check()) {
-            $request->session()->flash('status', 'Uspješno ste se prijavili.');
+            $request->session()->flash('status', 'Uspješna prijava.');
             return redirect()->route('korisnik');
         } else {
             return redirect()->route('prijava_korisnika');
