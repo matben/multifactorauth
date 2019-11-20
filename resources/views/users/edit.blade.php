@@ -39,17 +39,19 @@
             <div class="form-group row">
                 <label for="token_mfa" class="col-sm-3 col-form-label">Token</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="token_mfa" placeholder="token" name="token_mfa"
+                    <input type="text" class="form-control {{ $errors->has('token_mfa') ? 'is-invalid' : '' }}" id="token_mfa" placeholder="token" name="token_mfa"
                            value="{{ old('token_mfa', $user->token_mfa) }}">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" >
                 <label for="mobile_phone" class="col-sm-3 col-form-label">Mobilni telefon</label>
                 <div class="col-sm-9">
-                    <input type="tel" class="form-control" id="mobile_phone"
+                    <input type="tel"  class="form-control {{ $errors->has('mobile_phone') ? 'is-invalid' : '' }} " id="mobile_phone"
                            placeholder="broj mobilnog uređaja (format: 0911234567)"
                            name="mobile_phone" value="{{ old('mobile_phone', $user->mobile_phone) }}">
                 </div>
+
+
             </div>
             <div align="center">
                 <button type="submit" class="btn btn-primary mb-2">Ažuriraj</button>
