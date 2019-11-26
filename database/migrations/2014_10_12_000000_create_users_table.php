@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('uid');
             $table->string('email')->unique();
             $table->string('home_org');
-            $table->string('token_mfa');
-            $table->string('mobile_phone');
+//            $table->string('token_mfa');
+//            $table->string('mobile_phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

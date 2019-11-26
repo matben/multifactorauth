@@ -15,7 +15,7 @@ class CreateAuthenticationModulesTable extends Migration
     {
         Schema::create('authentication_modules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('naziv');
+            $table->string('name');
             $table->timestamps();
         });
     }

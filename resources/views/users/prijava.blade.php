@@ -36,21 +36,21 @@
                            value="{{$user_to_save['o'][0]}}">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="token_mfa" class="col-sm-4 col-form-label">Token</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control {{ $errors->has('token_mfa') ? 'is-invalid' : '' }}" id="token_mfa" placeholder="token" name="token_mfa"
-                           value="{{ old('token_mfa') }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="mobile_phone" class="col-sm-4 col-form-label">Mobilni telefon</label>
-                <div class="col-sm-8">
-                    <input type="tel" class="form-control {{ $errors->has('mobile_phone') ? 'is-invalid' : '' }}" id="mobile_phone"
-                           placeholder="broj mobilnog uređaja (format: 0911234567)"
-                           name="mobile_phone" value="{{ old('mobile_phone') }}">
-                </div>
-            </div>
+            {{--<div class="form-group row">--}}
+                {{--<label for="token_mfa" class="col-sm-4 col-form-label">Token</label>--}}
+                {{--<div class="col-sm-8">--}}
+                    {{--<input type="text" class="form-control {{ $errors->has('token_mfa') ? 'is-invalid' : '' }}" id="token_mfa" placeholder="token" name="token_mfa"--}}
+                           {{--value="{{ old('token_mfa') }}">--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="form-group row">--}}
+                {{--<label for="mobile_phone" class="col-sm-4 col-form-label">Mobilni telefon</label>--}}
+                {{--<div class="col-sm-8">--}}
+                    {{--<input type="tel" class="form-control {{ $errors->has('mobile_phone') ? 'is-invalid' : '' }}" id="mobile_phone"--}}
+                           {{--placeholder="broj mobilnog uređaja (format: 0911234567)"--}}
+                           {{--name="mobile_phone" value="{{ old('mobile_phone') }}">--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div align="center">
                 <button type="submit" class="btn btn-primary mb-2">Spremi</button>
             </div>
