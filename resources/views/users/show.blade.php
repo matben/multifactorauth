@@ -3,34 +3,36 @@
 @section('content')
 
     <div class="card">
-        <div class="card-header" align="center"><h1>Moji podaci</h1></div>
+        <div class="card-header" align="center">
+
+            <div class="alert alert-primary" role="alert">
+                <h1>Moji podaci</h1>
+            </div>
+
+        </div>
 
         <div class="card-body">
 
             <table class="table table-striped">
 
                 <tr>
-                    <td>Ime i prezime:</td>
+                    <th>Ime i prezime:</th>
                     <td>{{Auth::user()->name}}</td>
                 </tr>
                 <tr>
-                    <td>Korisnička oznaka:</td>
+                    <th>Korisnička oznaka:</th>
                     <td>{{Auth::user()->uid}}</td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <th>Email:</th>
                     <td>{{Auth::user()->email}}</td>
                 </tr>
                 <tr>
-                    <td>Matična ustanova:</td>
+                    <th>Matična ustanova:</th>
                     <td>{{Auth::user()->home_org}}</td>
                 </tr>
 
             </table>
-
-            {{--<div align="center"><a class="btn btn-primary" href="{{route('uredi_korisnika', Auth::user()->id)}}"--}}
-            {{--role="button">Uredi</a>--}}
-            {{--</div>--}}
 
         </div>
 
@@ -40,24 +42,19 @@
 
             <div class="card-header" align="center">
                 <div class="alert alert-warning" role="alert">
-                    <h1>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju..</h1>
+                    <h2>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju..</h2>
                 </div>
             </div>
 
-            {{--<div class="alert alert-warning" role="alert">--}}
-            {{--<h1>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju..</h1>--}}
-            {{--</div>--}}
 
         @else
 
 
-
-
             <div class="card-header" align="center">
                 <div class="alert alert-info" role="alert">
-                    <h1>Višestupanjske autentikacije povezane s Vašim korisničkim
+                    <h2>Moduli višestupanjske autentikacije povezane s Vašim korisničkim
                         računom
-                    </h1>
+                    </h2>
                 </div>
             </div>
 
@@ -78,20 +75,58 @@
                             <td>{{ $users_module->module_name->name }}</td>
                             <td>{{ $users_module->resource_id }}</td>
                             <td>{{ $users_module->key }}</td>
-                            <td>Zatraži brisanje</td>
+                            <td>
+
+
+                                <div align="center">
+                                    {{--<a class="btn btn-primary btn-sm" href="{{route('/', Auth::user()->id)}}"--}}
+                                       {{--role="button">Zatraži brisanje</a>--}}
+
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                            data-target="#myModal">Zatraži brisanje
+                                    </button>
+                                </div>
+
+                            </td>
                         </tr>
                     @endforeach
 
 
                 </table>
 
-                {{--<div align="center"><a class="btn btn-primary" href="{{route('uredi_korisnika', Auth::user()->id)}}"--}}
-                {{--role="button">Uredi</a>--}}
-                {{--</div>--}}
 
             </div>
 
         @endif
 
     </div>
+
+    <script>
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+
+    </script>
+
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Potvrda brisanja</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Jeste li sigurni da želite obrisati drugi stupanj autentikacije.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">obriši</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">zatvori</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
