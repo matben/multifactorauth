@@ -23,16 +23,16 @@ class UserController extends Controller
         return view('users.show', compact('users_modules'));
     }
 
-    public function edit($id)
-    {
+//    public function edit($id)
+//    {
+//
+//        return view('users.edit', compact('user'));
+//
+//    }
 
-        return view('users.edit', compact('user'));
 
-    }
-
-
-    public function update($id, Request $request)
-    {
+//    public function update($id, Request $request)
+//    {
 
 //        $rules = [
 //            'token_mfa' => 'required|numeric|digits_between:7,17',
@@ -52,21 +52,31 @@ class UserController extends Controller
 
 //        $this->validate($request, $rules, $messages);
 
-        $user = User::find($id);
+//        $user = User::find($id);
 
 //        $user->name = $request->displayName;
 //        $user->uid = $request->uid;
 //        $user->email = $request->email;
 //        $user->home_org = $request->home_org;
-        $user->token_mfa = $request->token_mfa;
-        $user->mobile_phone = $request->mobile_phone;
+//        $user->token_mfa = $request->token_mfa;
+//        $user->mobile_phone = $request->mobile_phone;
+//
+//
+//        $user->save();
+//
+//        $request->session()->flash('status', 'Uspješno ste promijenili podatke o korisniku.');
+//        return redirect('/korisnik');
+//
+//    }
 
 
-        $user->save();
 
-        $request->session()->flash('status', 'Uspješno ste promijenili podatke o korisniku.');
-        return redirect('/korisnik');
 
+    public function create_auth_module(){
+        return view('users.add_module');
     }
+
+
+
 
 }

@@ -41,6 +41,10 @@ Route::post('/spremi_korisnika', 'HomeController@store')->name('spremi_korisnika
 //prikaz konkretnog/logiranog korisnika
 Route::get('/korisnik', 'UserController@show')->name('korisnik');
 //forma za uređivanje postoječeg korisnika
-Route::get('/korisnik/{user}/uredi', 'UserController@edit')->name('uredi_korisnika');
+//Route::get('/korisnik/{user}/uredi', 'UserController@edit')->name('uredi_korisnika');
 //ažuriranje podataka o korisniku
-Route::patch('/korisnik/{user}/', 'UserController@update')->name('azuriraj_korisnika');
+//Route::patch('/korisnik/{user}/', 'UserController@update')->name('azuriraj_korisnika');
+
+
+//dodaj autentikacijski modul za viši stupanj korisniku
+Route::get('/dodaj_modul', 'UserController@create_auth_module')->name('dodaj_modul');

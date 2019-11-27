@@ -12,7 +12,7 @@
                 <label for="displayName" class="col-sm-4 col-form-label">Ime i Prezime</label>
                 <div class="col-sm-8">
                     <input type="text" readonly class="form-control" id="displayName" name="displayName"
-                           value="{{$user_to_save['displayName'][0]}}">
+                           value="{{$user_to_save['cn'][0]}}">
                 </div>
             </div>
             <div class="form-group row">

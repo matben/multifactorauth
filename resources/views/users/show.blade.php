@@ -42,13 +42,11 @@
 
             <div class="card-header" align="center">
                 <div class="alert alert-warning" role="alert">
-                    <h2>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju..</h2>
+                    <h2>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju.</h2>
                 </div>
             </div>
 
-
         @else
-
 
             <div class="card-header" align="center">
                 <div class="alert alert-info" role="alert">
@@ -80,7 +78,7 @@
 
                                 <div align="center">
                                     {{--<a class="btn btn-primary btn-sm" href="{{route('/', Auth::user()->id)}}"--}}
-                                       {{--role="button">Zatraži brisanje</a>--}}
+                                    {{--role="button">Zatraži brisanje</a>--}}
 
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                             data-target="#myModal">Zatraži brisanje
@@ -91,9 +89,7 @@
                         </tr>
                     @endforeach
 
-
                 </table>
-
 
             </div>
 
