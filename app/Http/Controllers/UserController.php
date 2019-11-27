@@ -78,5 +78,19 @@ class UserController extends Controller
 
 
 
+    public function destroy_module($id){
+
+        // delete
+        $user_module = User_module::find($id);
+        $user_module->delete();
+
+        // redirect
+        Session::flash('status', 'Uspješno obrisan modul!');
+        return redirect(route('korisnik'));
+
+    }
+
+
+
 
 }

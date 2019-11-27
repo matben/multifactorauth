@@ -77,12 +77,20 @@
 
 
                                 <div align="center">
-                                    {{--<a class="btn btn-primary btn-sm" href="{{route('/', Auth::user()->id)}}"--}}
-                                    {{--role="button">Zatraži brisanje</a>--}}
+                                    {{--<a class="btn btn-primary btn-sm"--}}
+                                       {{--href="{{route('obrisi_modul', $users_module->id)}}"--}}
+                                       {{--role="button">Zatraži brisanje</a>--}}
 
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#myModal">Zatraži brisanje
-                                    </button>
+
+
+                                    {{Form::open(['method'  => 'DELETE', 'route' => ['obrisi_modul', $users_module->id]])}}
+                                    <button type="submit" class="btn btn-primary mb-2 btn-sm">Obriši</button>
+                                    {{--<button type="submit" class="btn btn-primary mb-2 btn-sm" onclick="alert('jeste li sigurni da želite obrisati modul?')">Obriši</button>--}}
+                                    {{Form::close()}}
+
+                                    {{--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal"--}}
+                                    {{--data-target="#myModal">Zatraži brisanje--}}
+                                    {{--</button>--}}
                                 </div>
 
                             </td>
@@ -97,32 +105,32 @@
 
     </div>
 
-    <script>
+    {{--<script>--}}
 
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
+    {{--$('#myModal').on('shown.bs.modal', function () {--}}
+    {{--$('#myInput').trigger('focus')--}}
+    {{--})--}}
 
-    </script>
+    {{--</script>--}}
 
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Potvrda brisanja</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Jeste li sigurni da želite obrisati drugi stupanj autentikacije.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">obriši</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">zatvori</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--<div id="myModal" class="modal" tabindex="-1" role="dialog">--}}
+    {{--<div class="modal-dialog" role="document">--}}
+    {{--<div class="modal-content">--}}
+    {{--<div class="modal-header">--}}
+    {{--<h5 class="modal-title">Potvrda brisanja</h5>--}}
+    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+    {{--<span aria-hidden="true">&times;</span>--}}
+    {{--</button>--}}
+    {{--</div>--}}
+    {{--<div class="modal-body">--}}
+    {{--<p>Jeste li sigurni da želite obrisati drugi stupanj autentikacije.</p>--}}
+    {{--</div>--}}
+    {{--<div class="modal-footer">--}}
+    {{--<button type="button" class="btn btn-danger" href="{{route('obrisi_modul', $users_module->id)}}">obriši</button>--}}
+    {{--<button type="button" class="btn btn-secondary" data-dismiss="modal">zatvori</button>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
 
 @endsection
