@@ -3,7 +3,14 @@
 @section('content')
 
     <div class="card">
-        <div class="card-header" align="center"><h2>Registracija korisnika za korištenje višestupanjske autentikacije aai@edu sustava</h2></div>
+
+        <div class="card-header" align="center">
+
+            <div class="alert alert-primary" role="alert">
+                <h1>Registracija korisnika za korištenje višestupanjske autentikacije aai@edu sustava</h1>
+            </div>
+
+        </div>
 
         <div class="card-body">
 

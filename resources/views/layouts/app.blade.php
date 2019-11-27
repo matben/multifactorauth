@@ -23,7 +23,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{route('/')}}">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -57,9 +57,14 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            {{--                                <a href="{{ route('saml2_logout', 'test') }}">Odjava</a>--}}
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                {{--profil--}}
+                                @if(Route::currentRouteName() == '/')
+                                    <a class="dropdown-item" href="{{ route('korisnik') }}">{{ __('Profil') }}</a>
+                                @endif
+
+                                {{--odjava--}}
                                 <a class="dropdown-item" href="{{ route('saml2_logout', 'test') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

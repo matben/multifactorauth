@@ -43,14 +43,34 @@ class MyEventServiceProvider extends ServiceProvider
 
 //            dd($userData['attributes']);
 
-            \session(['user_to_save' => $userData['attributes']]);
+//            \session(['user_to_save' => $userData['attributes']]);
 
+            $user = User::where('uid', $userData['attributes']['uid'])->first();
 
-            $user = User::where('uid', $userData['attributes']['hrEduPersonUniqueID'])->first();
+//            dd($user);
 
-            if ($user) {
+            if($user){
+                session()->flash('status', 'Uspješno ste se prijavili.');
                 Auth::login($user);
             }
+            else{
+
+                $user = new User;
+
+                $user->name = $userData['attributes']['cn'][0];
+                $user->uid = $userData['attributes']['uid'][0];
+                $user->email = $userData['attributes']['mail'][0];
+                $user->home_org = $userData['attributes']['o'][0];
+
+                $user->save();
+
+                Auth::login($user);
+
+                session()->flash('status', 'Uspješno ste se registrirali za korištenje višestupanjske autentikacije.');
+                return redirect('/korisnik');
+
+            }
+
         });
 
 

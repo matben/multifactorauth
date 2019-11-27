@@ -32,21 +32,27 @@
             <hr>
 
 
-            @if(Session::get('id_modula') == 1)
-
-            @elseif(Session::get('id_modula') == 1)
-
-            @elseif(Session::get('id_modula') == 1)
-            @endif
-
             {!! Form::open(['url' => 'spremi_korisnika']) !!}
+
+
             <div class="form-group">
-                <label for="exampleInputEmail1">Yubikey ključ</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="xxxxxxx123456789">
-                <small id="emailHelp" class="form-text text-muted">Unesite ključ kojim ste se registrirali na Yubikey
-                    servisu.
-                </small>
+
+                @if($_GET['id_modula'] == 1)
+                    <label for="exampleInputEmail1">Yubikey ključ</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="xxxxxxx123456789">
+                    <small id="emailHelp" class="form-text text-muted">Unesite ključ kojim ste se registrirali na
+                        Yubikey servisu.
+                    </small>
+                @elseif($_GET['id_modula'] == 2)
+                    <label for="exampleInputEmail1">Broj mobitela</label>
+                    <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="0911234567">
+                    <small id="emailHelp" class="form-text text-muted">Broj mobitela za primanje koda za drugi stupanj
+                        autentikacije.
+                    </small>
+                @endif
+
             </div>
 
 
