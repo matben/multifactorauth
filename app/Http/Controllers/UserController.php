@@ -77,6 +77,22 @@ class UserController extends Controller
     }
 
 
+    public function store_auth_module(Request $request){
+        $user_module = new User_module;
+
+//        dd($request->key);
+
+        $user_module->user_id =  Auth::id();
+        $user_module->module_id = $request->id_modula;
+        $user_module->resource_id = 132456;
+        $user_module->key = $request->key;
+
+        $user_module->save();
+
+        return redirect(route('korisnik'));
+    }
+
+
 
     public function destroy_module($id){
 

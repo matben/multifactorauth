@@ -49,5 +49,7 @@ Route::get('/korisnik', 'UserController@show')->name('korisnik');
 //dodaj autentikacijski modul za viši stupanj korisniku
 Route::get('/dodaj_modul', 'UserController@create_auth_module')->name('dodaj_modul');
 
+Route::post('/spremi_modul', 'UserController@store_auth_module')->name('spremi_modul');
+
 Route::delete('/obrisi_modul/{user_module}', 'UserController@destroy_module')->name('obrisi_modul');
 
