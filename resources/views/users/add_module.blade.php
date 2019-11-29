@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <th>Korisnička oznaka:</th>
-                    <td>{{Auth::user()->uid}}</td>
+                    <td>{{Auth::user()->hrEduPersonUniqueID}}</td>
                 </tr>
                 <tr>
                     <th>Email:</th>

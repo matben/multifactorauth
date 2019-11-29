@@ -45,7 +45,7 @@ class MyEventServiceProvider extends ServiceProvider
 
 //            \session(['user_to_save' => $userData['attributes']]);
 
-            $user = User::where('uid', $userData['attributes']['uid'])->first();
+            $user = User::where('hrEduPersonUniqueID', $userData['attributes']['hrEduPersonUniqueID'])->first();
 
 //            dd($user);
 
@@ -58,7 +58,7 @@ class MyEventServiceProvider extends ServiceProvider
                 $user = new User;
 
                 $user->name = $userData['attributes']['cn'][0];
-                $user->uid = $userData['attributes']['uid'][0];
+                $user->hrEduPersonUniqueID = $userData['attributes']['hrEduPersonUniqueID'][0];
                 $user->email = $userData['attributes']['mail'][0];
                 $user->home_org = $userData['attributes']['o'][0];
 

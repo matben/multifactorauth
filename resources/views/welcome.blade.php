@@ -4,13 +4,13 @@
 
     <div class="card">
 
-        <div class="card-header" align="center">
+        {{--<div class="card-header" align="center">--}}
 
-            <div class="alert alert-primary" role="alert">
-                <h2>Registracija korisnika za korištenje višestupanjske autentikacije aai@edu sustava</h2>
-            </div>
+            {{--<div class="alert alert-primary" role="alert">--}}
+                {{--<h2>Registracija korisnika za korištenje višestupanjske autentikacije aai@edu sustava</h2>--}}
+            {{--</div>--}}
 
-        </div>
+        {{--</div>--}}
 
         <div class="card-body">
 
@@ -23,7 +23,7 @@
             <div class="card-header" align="center">
 
                 <div class="alert alert-secondary" role="alert">
-                    <h2>Vrste dostupnih autentikacija za drugi stupanj</h2>
+                    <h3>Vrste dostupnih autentikacija za drugi stupanj</h3>
                 </div>
 
             </div>
@@ -50,7 +50,7 @@
             <div class="card-header" align="center">
 
                 <div class="alert alert-secondary" role="alert">
-                    <h2>Usluge koje koriste višestupanjsku autentikaciju</h2>
+                    <h3>Usluge koje koriste višestupanjsku autentikaciju</h3>
                 </div>
 
             </div>

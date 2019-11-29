@@ -18,8 +18,8 @@
             <div class="form-group row">
                 <label for="uid" class="col-sm-3 col-form-label">Korisnička oznaka</label>
                 <div class="col-sm-9">
-                    <input type="text" readonly class="form-control" id="uid" name="uid"
-                           value="{{ old('uid', $user->uid) }}">
+                    <input type="text" readonly class="form-control" id="hrEduPersonUniqueID" name="hrEduPersonUniqueID"
+                           value="{{ old('hrEduPersonUniqueID', $user->hrEduPersonUniqueID) }}">
                 </div>
             </div>
             <div class="form-group row">

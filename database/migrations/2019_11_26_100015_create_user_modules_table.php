@@ -18,6 +18,7 @@ class CreateUserModulesTable extends Migration
         Schema::create('user_modules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
+            $table->string('hrEduPersonUniqueID');
             $table->bigInteger('module_id');
             $table->bigInteger('resource_id');
             $table->string('key');

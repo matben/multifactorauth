@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function show()
     {
-        $users_modules =  Auth::user()->auth_modules;
+        $users_modules = Auth::user()->auth_modules;
 //        dd($users_modules);
 
         return view('users.show', compact('users_modules'));
@@ -70,19 +70,18 @@ class UserController extends Controller
 //    }
 
 
-
-
-    public function create_auth_module(){
+    public function create_auth_module()
+    {
         return view('users.add_module');
     }
 
 
-    public function store_auth_module(Request $request){
+    public function store_auth_module(Request $request)
+    {
         $user_module = new User_module;
 
-//        dd($request->key);
-
-        $user_module->user_id =  Auth::id();
+        $user_module->user_id = Auth::id();
+        $user_module->hrEduPersonUniqueID = Auth::user()->hrEduPersonUniqueID;
         $user_module->module_id = $request->id_modula;
         $user_module->resource_id = 132456;
         $user_module->key = $request->key;
@@ -94,7 +93,8 @@ class UserController extends Controller
 
 
 
-    public function destroy_module($id){
+    public function destroy_module($id)
+    {
 
         // delete
         $user_module = User_module::find($id);
@@ -105,8 +105,6 @@ class UserController extends Controller
         return redirect(route('korisnik'));
 
     }
-
-
 
 
 }

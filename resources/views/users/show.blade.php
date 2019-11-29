@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th>Korisnička oznaka:</th>
-                    <td>{{Auth::user()->uid}}</td>
+                    <td>{{Auth::user()->hrEduPersonUniqueID}}</td>
                 </tr>
                 <tr>
                     <th>Email:</th>
@@ -62,7 +62,7 @@
 
                     <tr>
                         <th>Naziv modula</th>
-                        <th>Povezano sa resursom</th>
+                        {{--<th>Povezano sa resursom</th>--}}
                         <th>Ključ</th>
                         <th></th>
                     </tr>
@@ -71,7 +71,7 @@
                     @foreach ($users_modules as $users_module)
                         <tr>
                             <td>{{ $users_module->module_name->name }}</td>
-                            <td>{{ $users_module->resource_id }}</td>
+{{--                            <td>{{ $users_module->resource_id }}</td>--}}
                             <td>{{ $users_module->key }}</td>
                             <td>
 
