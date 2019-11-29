@@ -4,15 +4,11 @@
 
     <div class="card">
 
-        <div class="card-header" align="center">
+        <div class="card-body">
 
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-primary" role="alert" align="center">
                 <h1>Dodavanje modula za drugi stupanj autentikacije</h1>
             </div>
-
-        </div>
-
-        <div class="card-body">
 
 
             <table class="table table-striped">

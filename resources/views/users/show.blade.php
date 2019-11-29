@@ -3,15 +3,12 @@
 @section('content')
 
     <div class="card">
-        <div class="card-header" align="center">
+        <div class="card-body">
 
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-primary" role="alert" align="center">
                 <h1>Moji podaci</h1>
             </div>
 
-        </div>
-
-        <div class="card-body">
 
             <table class="table table-striped">
 
@@ -33,30 +30,27 @@
                 </tr>
 
             </table>
+        </div>
+    </div>
 
+    <hr>
+
+    @if($users_modules->isEmpty())
+
+        <div class="alert alert-warning" role="alert" align="center">
+            <h2>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju.</h2>
         </div>
 
-        <hr>
+    @else
 
-        @if($users_modules->isEmpty())
-
-            <div class="card-header" align="center">
-                <div class="alert alert-warning" role="alert">
-                    <h2>S Vašim korisničkim računom nema povezanih modula za višestupanjsku autentikaciju.</h2>
-                </div>
-            </div>
-
-        @else
-
-            <div class="card-header" align="center">
-                <div class="alert alert-info" role="alert">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-info" role="alert" align="center">
                     <h2>Moduli višestupanjske autentikacije povezane s Vašim korisničkim
                         računom
                     </h2>
                 </div>
-            </div>
 
-            <div class="card-body">
 
                 <table class="table table-striped">
 
@@ -71,15 +65,15 @@
                     @foreach ($users_modules as $users_module)
                         <tr>
                             <td>{{ $users_module->module_name->name }}</td>
-{{--                            <td>{{ $users_module->resource_id }}</td>--}}
+                            {{--                            <td>{{ $users_module->resource_id }}</td>--}}
                             <td>{{ $users_module->key }}</td>
                             <td>
 
 
                                 <div align="center">
                                     {{--<a class="btn btn-primary btn-sm"--}}
-                                       {{--href="{{route('obrisi_modul', $users_module->id)}}"--}}
-                                       {{--role="button">Zatraži brisanje</a>--}}
+                                    {{--href="{{route('obrisi_modul', $users_module->id)}}"--}}
+                                    {{--role="button">Zatraži brisanje</a>--}}
 
 
 
@@ -100,10 +94,10 @@
                 </table>
 
             </div>
+        </div>
 
-        @endif
+    @endif
 
-    </div>
 
     {{--<script>--}}
 

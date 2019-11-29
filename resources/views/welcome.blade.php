@@ -20,13 +20,11 @@
             {{--</div>--}}
 
 
-            <div class="card-header" align="center">
 
-                <div class="alert alert-secondary" role="alert">
+                <div class="alert alert-secondary" role="alert" align="center">
                     <h3>Vrste dostupnih autentikacija za drugi stupanj</h3>
                 </div>
 
-            </div>
 
 
             <ul class="list-group">
@@ -47,13 +45,11 @@
                 {{--<h3>Usluge koje koriste višestupanjsku autentikaciju:--}}
             {{--</div>--}}
 
-            <div class="card-header" align="center">
 
-                <div class="alert alert-secondary" role="alert">
+                <div class="alert alert-secondary" role="alert" align="center">
                     <h3>Usluge koje koriste višestupanjsku autentikaciju</h3>
                 </div>
 
-            </div>
 
             <ul class="list-group">
                 <li class="list-group-item">web usluga 1</li>
