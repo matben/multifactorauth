@@ -2,6 +2,8 @@
 
 @section('content')
 
+{{--    {{dd($_GET)}}--}}
+
     <div class="card">
 
         <div class="card-body">
@@ -41,6 +43,7 @@
             <div class="form-group">
 
                 <input type="hidden" name="mid" value="{{$_GET['mid']}}">
+                <input type="hidden" name="returnTo" value="{{$_GET['returnTo']}}">
 
                 @if($_GET['mid'] == 1)
                     <label for="exampleInputEmail1">Yubikey ključ</label>

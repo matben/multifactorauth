@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\User_module;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -88,7 +89,13 @@ class UserController extends Controller
 
         $user_module->save();
 
-        return redirect(route('korisnik'));
+//        Session::flash('status', 'Uspješno dodan modul za drugi stupanj autentikacije! ');
+//        Session::flash('status',"Your account is not yet active. <a href='{ url('/activation/resend') }'>Click here</a> to resend the activation email.");
+//        return redirect(route('korisnik'));
+
+        $url = $request->returnTo;
+        return Redirect::to($url);
+
     }
 
 
