@@ -4,8 +4,6 @@
             <div class="header-logo logo-aai">
                 <a href="http://www.aaiedu.hr/">
                     <img src="{{ asset('img/aai-70.png') }}" class="img-fluid" alt="">
-                    {{--<img src="{{ asset('img/aai-70.png') }}" class="img-fluid d-none d-sm-block" alt="">--}}
-{{--                    <img src="{{ asset('img/aai-70-compact.png') }}" class="img-fluid d-block d-sm-none" alt="">--}}
                 </a>
             </div>
         </div>

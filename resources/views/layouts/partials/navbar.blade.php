@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm border">
 
-    <a class="navbar-brand" href="{{route('/')}}">
+    <a class="navbar-brand" href="">
         {{ config('app.name', 'Laravel') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -23,7 +23,12 @@
             @guest
 
                 @if(Route::currentRouteName() != 'prijava_korisnika')
-                    <a href="{{ route('saml2_login', 'test') }}">Prijava</a>
+                    {{--                    <a href="{{ route('saml2_login', 'test') }}">Prijava</a>--}}
+                    <button class="btn navbar-btn" type="button" value="Input Button"
+                            onclick="location.href = '{{ route('saml2_login', 'test') }}';">
+                        <i class="fas fa-sign-in-alt"></i> Prijava
+                    </button>
+
                 @endif
 
 
@@ -31,23 +36,24 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
+                        <i class="fas fa-user"></i>
+                        {{ Auth::user()->name }}
 
+                        <span class="caret"></span>
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                         {{--profil--}}
                         @if(Route::currentRouteName() == '/')
                             <a class="dropdown-item" href="{{ route('korisnik') }}">{{ __('Profil') }}</a>
                         @endif
-
                         {{--odjava--}}
                         <a class="dropdown-item" href="{{ route('saml2_logout', 'test') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i>
                             {{ __('Odjava') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('saml2_logout', 'test') }}" method="GET"
                               style="display: none;">
                             @csrf
