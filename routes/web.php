@@ -23,14 +23,14 @@ Route::get('/', function () {
 /**
  * ruta za redirekciju korisnika ovisno o tome dal je registriran ili se treba registrirati
  */
-Route::get('/prijava', 'HomeController@prijava')->name('prijava');
+//Route::get('/prijava', 'HomeController@prijava')->name('prijava');
 
 
 //registracija neprijavljenog korisnika
-Route::get('/prijava_korisnika', 'HomeController@create')->name('prijava_korisnika');
-Route::post('/spremi_korisnika', 'HomeController@store')->name('spremi_korisnika');
+//Route::get('/prijava_korisnika', 'HomeController@create')->name('prijava_korisnika');
+//Route::post('/spremi_korisnika', 'HomeController@store')->name('spremi_korisnika');
 
-
+Route::get('/aktiviraj_modul/{token}', 'UserController@activate_module')->name('aktiviraj_modul');
 
 
 

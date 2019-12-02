@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('activate_module');
     }
 
     public function show()
@@ -73,6 +73,26 @@ class UserController extends Controller
         // redirect
         Session::flash('status', 'Uspješno obrisan modul!');
         return redirect(route('korisnik'));
+
+    }
+
+
+
+    public function activate_module($token){
+
+        $user_module = User_module::where('activation_token', $token)->first();
+
+        if(isset($user_module)){
+            $user_module->active = 1;
+            $user_module->save();
+
+            Session::flash('status', 'Uspješno aktiviran modul.');
+            return redirect(route('korisnik'));
+        }
+        else{
+            Session::flash('status', 'Nevažeći link');
+            return redirect(route('korisnik'));
+        }
 
     }
 

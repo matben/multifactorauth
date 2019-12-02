@@ -6,6 +6,6 @@
     Molimo Vas da klikom na sljedeći link aktivirate registrirani autentikacijski modul za višestupanjsku autentikaciju.
     <br>
     <br>
-    {{route('korisnik', $activation_token)}}
+    {{route('aktiviraj_modul', $activation_token)}}
 
 </div>
