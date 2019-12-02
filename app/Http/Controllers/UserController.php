@@ -93,10 +93,10 @@ class UserController extends Controller
         $user_module->save();
 
         $activation_token = $user_module->activation_token;
-//        Mail::to('mbencic@srce.hr')
-//            ->send(new SendToken(1));
+        Mail::to('mbencic@srce.hr')
+            ->send(new SendToken($activation_token));
 
-        return new SendToken($activation_token);
+//        return new SendToken($activation_token);
 
         Session::flash('status', 'Na Vašu mail adresu ( '.Auth::user()->email.' ) poslan je link za aktivaciju modula za drugi stupanj autentikacije. Molimo Vas da klikom na link aktivirate drugi stupanj autentikacije.');
         return redirect(route('korisnik'));
