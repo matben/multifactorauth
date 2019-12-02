@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{--    {{dd($_GET)}}--}}
+    {{--    {{dd($_GET)}}--}}
 
     <div class="card">
 
