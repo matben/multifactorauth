@@ -15,7 +15,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('activate_module');
+        $this->middleware('auth');
+//        $this->middleware('auth')->except('activate_module');
     }
 
     public function show()
@@ -34,6 +35,21 @@ class UserController extends Controller
 
     public function store_auth_module(Request $request)
     {
+
+
+
+        $rules = [
+            'spid' => 'required|unique:user_modules,resource_id',
+        ];
+
+        $messages = [
+            'spid.unique'  => 'Za traženi resurs postoji zapis za drugi stupanj autentikacije.',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+
+
         $user_module = new User_module;
 
         $user_module->user_id = Auth::id();
@@ -80,7 +96,9 @@ class UserController extends Controller
 
     public function activate_module($token){
 
-        $user_module = User_module::where('activation_token', $token)->first();
+        $user_module = User_module::where('activation_token', $token)
+            ->whereNull('active')
+            ->first();
 
         if(isset($user_module)){
             $user_module->active = 1;
