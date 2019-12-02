@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\User_module;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendToken;
 
 class UserController extends Controller
 {
@@ -89,6 +91,12 @@ class UserController extends Controller
         $user_module->activation_token = str_random(40);
 
         $user_module->save();
+
+        $activation_token = $user_module->activation_token;
+//        Mail::to('mbencic@srce.hr')
+//            ->send(new SendToken(1));
+
+        return new SendToken($activation_token);
 
         Session::flash('status', 'Na Vašu mail adresu ( '.Auth::user()->email.' ) poslan je link za aktivaciju modula za drugi stupanj autentikacije. Molimo Vas da klikom na link aktivirate drugi stupanj autentikacije.');
         return redirect(route('korisnik'));
