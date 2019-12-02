@@ -82,7 +82,7 @@ class UserController extends Controller
 
         $user_module->user_id = Auth::id();
         $user_module->hrEduPersonUniqueID = Auth::user()->hrEduPersonUniqueID;
-        $user_module->module_id = $request->id_modula;
+        $user_module->module_id = $request->mid;
         $user_module->resource_id = 132456;
         $user_module->key = $request->key;
 
