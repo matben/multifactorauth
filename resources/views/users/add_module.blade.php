@@ -44,6 +44,7 @@
 
                 <input type="hidden" name="mid" value="{{$_GET['mid']}}">
                 <input type="hidden" name="returnTo" value="{{$_GET['returnTo']}}">
+                <input type="hidden" name="spid" value="{{$_GET['spid']}}">
 
                 @if($_GET['mid'] == 1)
                     <label for="exampleInputEmail1">Yubikey ključ</label>

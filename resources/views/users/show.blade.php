@@ -76,11 +76,18 @@
                                     {{--role="button">Zatraži brisanje</a>--}}
 
 
+                                    @if($users_module->active == null)
 
-                                    {{Form::open(['method'  => 'DELETE', 'route' => ['obrisi_modul', $users_module->id]])}}
-                                    <button type="submit" class="btn btn-primary mb-2 btn-sm">Obriši</button>
-                                    {{--<button type="submit" class="btn btn-primary mb-2 btn-sm" onclick="alert('jeste li sigurni da želite obrisati modul?')">Obriši</button>--}}
-                                    {{Form::close()}}
+                                        <button disabled type="submit" class="btn btn-danger mb-2 btn-sm">neaktivan modul</button>
+
+                                    @else
+
+                                        {{Form::open(['method'  => 'DELETE', 'route' => ['obrisi_modul', $users_module->id]])}}
+                                        <button type="submit" class="btn btn-primary mb-2 btn-sm">Obriši</button>
+                                        {{--<button type="submit" class="btn btn-primary mb-2 btn-sm" onclick="alert('jeste li sigurni da želite obrisati modul?')">Obriši</button>--}}
+                                        {{Form::close()}}
+
+                                    @endif
 
                                     {{--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal"--}}
                                     {{--data-target="#myModal">Zatraži brisanje--}}

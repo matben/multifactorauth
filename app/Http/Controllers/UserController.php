@@ -84,17 +84,17 @@ class UserController extends Controller
         $user_module->user_id = Auth::id();
         $user_module->hrEduPersonUniqueID = Auth::user()->hrEduPersonUniqueID;
         $user_module->module_id = $request->mid;
-        $user_module->resource_id = 132456;
+        $user_module->resource_id = $request->spid;
         $user_module->key = $request->key;
+        $user_module->activation_token = str_random(40);
 
         $user_module->save();
 
-//        Session::flash('status', 'Uspješno dodan modul za drugi stupanj autentikacije! ');
-//        Session::flash('status',"Your account is not yet active. <a href='{ url('/activation/resend') }'>Click here</a> to resend the activation email.");
-//        return redirect(route('korisnik'));
+        Session::flash('status', 'Na Vašu mail adresu ( '.Auth::user()->email.' ) poslan je link za aktivaciju modula za drugi stupanj autentikacije. Molimo Vas da klikom na link aktivirate drugi stupanj autentikacije.');
+        return redirect(route('korisnik'));
 
-        $url = $request->returnTo;
-        return Redirect::to($url);
+//        $url = $request->returnTo;
+//        return Redirect::to($url);
 
     }
 
