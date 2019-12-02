@@ -32,8 +32,7 @@ class SendToken extends Mailable
     public function build()
     {
 
-        return $this->from('example@example.com')
-            ->view('emails.send_token');
+        return $this->view('emails.send_token');
 
     }
 }
