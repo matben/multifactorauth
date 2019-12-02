@@ -32,7 +32,8 @@ class SendToken extends Mailable
     public function build()
     {
 
-        return $this->view('emails.send_token');
+        return $this->view('emails.send_token')
+            ->subject('Aktivacija višestupanjske autentikacije');
 
     }
 }

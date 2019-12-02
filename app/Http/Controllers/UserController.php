@@ -96,7 +96,6 @@ class UserController extends Controller
         $user_mail = Auth::user()->email;
 
         Mail::to($user_mail)
-            ->subject('Aktivacija višestupanjske autentikacije')
             ->send(new SendToken($activation_token));
 
 //        return new SendToken($activation_token);
