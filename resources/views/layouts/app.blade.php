@@ -44,7 +44,7 @@
                     @yield('content')
 
 
-                    <br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 </div>
 

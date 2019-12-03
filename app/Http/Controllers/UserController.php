@@ -104,11 +104,13 @@ class UserController extends Controller
             $user_module->active = 1;
             $user_module->save();
 
-            Session::flash('status', 'Uspješno aktiviran modul.');
-            return redirect(route('korisnik'));
+            Session::flash('aktivacija', 'Uspješno aktiviran modul');
+//            Session::flash('status', 'Uspješno aktiviran modul.');
+//            return redirect(route('korisnik', $user_module));
+            return view('users.show', compact('user_module'));
         }
         else{
-            Session::flash('status', 'Nevažeći link');
+//            Session::flash('status', 'Nevažeći link');
             return redirect(route('korisnik'));
         }
 

@@ -1,5 +1,39 @@
 @extends('layouts.app')
 
+
+@php
+
+    function createSecret($secretLength = 16) {
+    $validChars = _getBase32LookupTable();
+    unset($validChars[32]);
+    $secret = '';
+    for ($i = 0; $i < $secretLength; $i++) {
+    $secret .= $validChars[array_rand($validChars)];
+    }
+    return $secret;
+    }
+
+    function getQRCodeGoogleUrl($name, $secret) {
+    $urlencoded = urlencode('otpauth://totp/'.$name.'?secret='.$secret.'');
+    return
+    'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl='.$urlencoded.'';
+    }
+
+    function _getBase32LookupTable() {
+    return array(
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', //  7
+        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', // 15
+        'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', // 23
+        'Y', 'Z', '2', '3', '4', '5', '6', '7', // 31
+        '='  // padding char
+               );
+    }
+
+    $secret = createSecret();
+
+@endphp
+
+
 @section('content')
 
     {{--    {{dd($_GET)}}--}}
@@ -13,28 +47,28 @@
             </div>
 
 
-            <table class="table table-striped">
+            {{--<table class="table table-striped">--}}
 
-                <tr>
-                    <th>Ime i prezime:</th>
-                    <td>{{Auth::user()->name}}</td>
-                </tr>
-                <tr>
-                    <th>Korisnička oznaka:</th>
-                    <td>{{Auth::user()->hrEduPersonUniqueID}}</td>
-                </tr>
-                <tr>
-                    <th>Email:</th>
-                    <td>{{Auth::user()->email}}</td>
-                </tr>
-                <tr>
-                    <th>Matična ustanova:</th>
-                    <td>{{Auth::user()->home_org}}</td>
-                </tr>
+            {{--<tr>--}}
+            {{--<th>Ime i prezime:</th>--}}
+            {{--<td>{{Auth::user()->name}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<th>Korisnička oznaka:</th>--}}
+            {{--<td>{{Auth::user()->hrEduPersonUniqueID}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<th>Email:</th>--}}
+            {{--<td>{{Auth::user()->email}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<th>Matična ustanova:</th>--}}
+            {{--<td>{{Auth::user()->home_org}}</td>--}}
+            {{--</tr>--}}
 
-            </table>
+            {{--</table>--}}
 
-            <hr>
+            {{--<hr>--}}
 
 
             {!! Form::open(['url' => 'spremi_modul']) !!}
@@ -49,7 +83,7 @@
                 @if($_GET['mid'] == 1)
                     <label for="exampleInputEmail1">Broj mobitela</label>
                     <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="0911234567" name="key" required>
+                           placeholder="+385911234567" name="key" required>
                     <small id="emailHelp" class="form-text text-muted">Broj mobitela za primanje koda za drugi stupanj
                         autentikacije.
                     </small>
@@ -62,10 +96,30 @@
                 @elseif($_GET['mid'] == 3)
                     <label for="exampleInputEmail1">Yubikey ključ</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="xxxxxxx123456789" name="key" required>
-                    <small id="emailHelp" class="form-text text-muted">Unesite ključ kojim ste se registrirali na
-                        Yubikey servisu.
+                           placeholder="xxxxxxx123456789" name="key" required value="{{$secret}}">
+                    <small id="emailHelp" class="form-text text-muted">aktiviraj yubikey ključ
                     </small>
+
+                    <br>
+
+                    <div class="card">
+                        <div class="card-body" align="center">
+
+                            @php
+
+
+                                echo "<strong>Vaš tajni kod je</strong>: $secret<br/>"; echo "<strong>QR Code</strong>: <br />";
+
+                                $qr_path = getQRCodeGoogleUrl("IDP_2fa-dev", $secret); echo "<img src='$qr_path' />";
+
+
+
+                            @endphp
+
+                        </div>
+                    </div>
+
+
                 @endif
 
             </div>
