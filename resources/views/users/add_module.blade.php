@@ -47,18 +47,24 @@
                 <input type="hidden" name="spid" value="{{$_GET['spid']}}">
 
                 @if($_GET['mid'] == 1)
-                    <label for="exampleInputEmail1">Yubikey ključ</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="xxxxxxx123456789" name="key" required>
-                    <small id="emailHelp" class="form-text text-muted">Unesite ključ kojim ste se registrirali na
-                        Yubikey servisu.
-                    </small>
-                @elseif($_GET['mid'] == 2)
                     <label for="exampleInputEmail1">Broj mobitela</label>
                     <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                            placeholder="0911234567" name="key" required>
                     <small id="emailHelp" class="form-text text-muted">Broj mobitela za primanje koda za drugi stupanj
                         autentikacije.
+                    </small>
+                @elseif($_GET['mid'] == 2)
+                    <label for="exampleInputEmail1">TOTP</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="xxxxxxx123456789" name="key" required>
+                    <small id="emailHelp" class="form-text text-muted">Unesite token
+                    </small>
+                @elseif($_GET['mid'] == 3)
+                    <label for="exampleInputEmail1">Yubikey ključ</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="xxxxxxx123456789" name="key" required>
+                    <small id="emailHelp" class="form-text text-muted">Unesite ključ kojim ste se registrirali na
+                        Yubikey servisu.
                     </small>
                 @endif
 

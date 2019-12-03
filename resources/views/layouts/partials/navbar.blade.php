@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm border">
 
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="{{route('korisnik')}}">
         {{ config('app.name', 'Laravel') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
