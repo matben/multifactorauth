@@ -81,17 +81,17 @@
                 <input type="hidden" name="spid" value="{{$_GET['spid']}}">
 
                 @if($_GET['mid'] == 1)
-                    <label for="exampleInputEmail1">Broj mobitela</label>
-                    <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <label for="key">Broj mobitela</label>
+                    <input type="tel" class="form-control" id="key_tel" aria-describedby="emailHelp"
                            placeholder="+385911234567" name="key" required>
-                    <small id="emailHelp" class="form-text text-muted">Broj mobitela za primanje koda za drugi stupanj
+                    <small id="key" class="form-text text-muted">Broj mobitela za primanje koda za drugi stupanj
                         autentikacije.
                     </small>
                 @elseif($_GET['mid'] == 2)
-                    <label for="exampleInputEmail1">TOTP</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <label for="key">TOTP</label>
+                    <input type="text" class="form-control" id="key_QR" aria-describedby="emailHelp"
                            placeholder="" name="key" required value="{{$secret}}">
-                    <small id="emailHelp" class="form-text text-muted">Unesite token
+                    <small id="key" class="form-text text-muted">Unesite token
                     </small>
 
                     <br>
@@ -114,10 +114,10 @@
                     </div>
 
                 @elseif($_GET['mid'] == 3)
-                    <label for="exampleInputEmail1">Yubikey ključ</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="xxxxxxx123456789" name="key" required value="xxxxxxx123456789">
-                    <small id="emailHelp" class="form-text text-muted">aktiviraj yubikey ključ
+                    <label for="key">Yubikey ključ</label>
+                    <input type="text" class="form-control" id="key" aria-describedby="emailHelp"
+                           placeholder="xxxxxxx123456789" name="key" required value="">
+                    <small id="key" class="form-text text-muted">aktiviraj yubikey ključ
                     </small>
                 @endif
 
@@ -132,6 +132,12 @@
 
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("key").focus();
+        }
+    </script>
 
 
 @endsection
