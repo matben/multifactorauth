@@ -27,6 +27,7 @@
                     <button class="btn navbar-btn" type="button" value="Input Button"
                             onclick="location.href = '{{ route('saml2_login', 'test') }}';">
                         <i class="fas fa-sign-in-alt"></i> Prijava
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
 
                 @endif

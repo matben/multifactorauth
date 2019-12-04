@@ -90,14 +90,8 @@
                 @elseif($_GET['mid'] == 2)
                     <label for="exampleInputEmail1">TOTP</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="xxxxxxx123456789" name="key" required>
+                           placeholder="" name="key" required value="{{$secret}}">
                     <small id="emailHelp" class="form-text text-muted">Unesite token
-                    </small>
-                @elseif($_GET['mid'] == 3)
-                    <label for="exampleInputEmail1">Yubikey ključ</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="xxxxxxx123456789" name="key" required value="{{$secret}}">
-                    <small id="emailHelp" class="form-text text-muted">aktiviraj yubikey ključ
                     </small>
 
                     <br>
@@ -119,7 +113,12 @@
                         </div>
                     </div>
 
-
+                @elseif($_GET['mid'] == 3)
+                    <label for="exampleInputEmail1">Yubikey ključ</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="xxxxxxx123456789" name="key" required value="xxxxxxx123456789">
+                    <small id="emailHelp" class="form-text text-muted">aktiviraj yubikey ključ
+                    </small>
                 @endif
 
             </div>
