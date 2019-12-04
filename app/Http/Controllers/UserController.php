@@ -37,17 +37,15 @@ class UserController extends Controller
     {
 
 
-
         $rules = [
             'spid' => 'required|unique:user_modules,resource_id',
         ];
 
         $messages = [
-            'spid.unique'  => 'Za traženi resurs postoji zapis za drugi stupanj autentikacije.',
+            'spid.unique' => 'Za traženi resurs postoji zapis za drugi stupanj autentikacije.',
         ];
 
         $this->validate($request, $rules, $messages);
-
 
 
         $user_module = new User_module;
@@ -58,6 +56,11 @@ class UserController extends Controller
         $user_module->resource_id = $request->spid;
         $user_module->key = $request->key;
         $user_module->activation_token = str_random(40);
+
+
+        if ($request->mid == 3) {
+            $user_module->key = substr($user_module->key, 0, 12);
+        }
 
         $user_module->save();
 
@@ -93,14 +96,14 @@ class UserController extends Controller
     }
 
 
-
-    public function activate_module($token){
+    public function activate_module($token)
+    {
 
         $user_module = User_module::where('activation_token', $token)
             ->whereNull('active')
             ->first();
 
-        if(isset($user_module)){
+        if (isset($user_module)) {
             $user_module->active = 1;
             $user_module->save();
 
@@ -108,8 +111,7 @@ class UserController extends Controller
 //            Session::flash('status', 'Uspješno aktiviran modul.');
 //            return redirect(route('korisnik', $user_module));
             return view('users.show', compact('user_module'));
-        }
-        else{
+        } else {
 //            Session::flash('status', 'Nevažeći link');
             return redirect(route('korisnik'));
         }
