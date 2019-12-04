@@ -44,21 +44,15 @@
                     {{--sadržaj--}}
                     @yield('content')
 
-
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
                 </div>
 
-
-                {{--<div class="heightfix"></div>--}}
-
-            </div>
             </div>
         </div>
+</div>
 
 
-    </main>
-    @include('layouts.partials.footer')
+</main>
+@include('layouts.partials.footer')
 
 </div>
 
